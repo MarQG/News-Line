@@ -1,0 +1,121 @@
+body {
+  background-color: #000;
+  font-family: 'Teko', sans-serif;
+}
+
+h1,h2,h3,h4{
+    font-family: 'Anton', sans-serif;
+}
+#landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  margin-top: 40vh;
+  padding: 30px;
+  background-color: #222222;
+  border-radius: 4px;
+}
+
+#landing-header h1{
+  font-size: 5.6rem;
+}
+
+.landing-tagline{
+  color: #fff;
+  font-size: 3.6rem;
+}
+
+h1{
+  color: #db3e3e !important;
+}
+
+.btn{
+  border:none;
+  font-size: 2.6rem;
+}
+
+.btn-primary {
+  background-color: #db3e3e;
+  
+}
+
+.btn-primary:hover {
+  background-color: #f09927;
+}
+
+.btn-success {
+  background-color: #f09927;
+  
+}
+
+.btn-success:hover {
+  background-color: #db3e3e;
+}
+
+.slideshow { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}
+
+.slideshow li:nth-child(1) { 
+  background-image: url('/assets/images/news1.jpeg') 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url('/assets/images/news2.jpeg');
+  animation-delay: 10s; 
+}
+/* .slideshow li:nth-child(3) { 
+  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  animation-delay: 40s; 
+} */
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}
