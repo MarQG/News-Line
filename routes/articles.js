@@ -3,7 +3,7 @@ var router          = express.Router();
 var middleware      = require("../middleware");
 
 //INDEX - Show all campgrounds
-router.get("/", function(req, res){
+router.get("/", middleware.isLoggedIn, (req, res) => {
     res.render("articles/saved", { hideForm: true });
 });
 

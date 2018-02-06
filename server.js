@@ -8,11 +8,14 @@ const localStrategy   = require("passport-local").Strategy;
 const methodOverride  = require("method-override");
 const User            = require("./models/user");
 
+
     
 //requiring routes
     
 const indexRoutes = require("./routes/index");
-const articlesRoutes = require("./routes/articles");
+const articlesPageRoutes = require("./routes/articles");
+const articlesApiRoutes = require('./routes/api/articles');
+const notesApiRoutes = require('./routes/api/notes');
 
 mongoose.Promise = require('bluebird');
 mongoose.connect(process.env.DATABASEURL || 'mongodb://localhost:27017/scrapper', (err) => {
@@ -61,7 +64,9 @@ app.use((req, res, next) => {
 // ===============
 
 app.use("/",indexRoutes);
-app.use('/articles', articlesRoutes);
+app.use('/articles', articlesPageRoutes);
+app.use('/api', articlesApiRoutes);
+app.use('/api', notesApiRoutes);
 
 app.listen(process.env.PORT || 3000, process.env.IP || 'localhost', () => {
     console.log("The NEWS LINE Server has started!");

@@ -1,9 +1,17 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-var articlesSchema = mongoose.Schema(
+const articlesSchema = mongoose.Schema(
         {
-            text: String,
-            saved: Boolean,
+            title: {
+                type: String,
+                unique: true
+            },
+            link: String,
+            description: String,
+            saved: [{
+                id: String
+            }],
+           
             notes: [{
                 id: {
                     type: mongoose.Schema.Types.ObjectId,
@@ -14,4 +22,4 @@ var articlesSchema = mongoose.Schema(
 
 
 
-module.exports = mongoose.model("Comment", articlesSchema);
+module.exports = mongoose.model("Articles", articlesSchema);

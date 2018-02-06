@@ -124,3 +124,18 @@ p, a, form{
 .hero-text p{
     font-size: 2.0rem;
 }
+
+.main-window{
+    height: 100%;
+    width: 100%;
+    background: #222;
+    opacity: 0.9;
+}
+
+#articles-window{
+    margin-top: 25px;
+}
+
+.btn-article{
+    font-size: 2.6rem;
+}
