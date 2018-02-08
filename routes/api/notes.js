@@ -2,34 +2,38 @@ const express = require('express');
 const router = express.Router();
 
 const Notes = require("../../models/notes");
+const Articles = require('../../models/articles');
 
 router.post("/notes", (req, res) => {
-    console.log(req.body);
     const newNote = {
         author: {
             id: req.user._id,
             username: req.user.username
         },
-        comment: req.body.comment,
-        createdDate: 0
+        comment: req.body.comment
     }
-
-    console.log(newNote);
-    Notes.create(newNote, (error) => {
-        if(error){
-            console.log("Failed to create note because of :",error);
-        }
-
-        Notes.find({ "author.username" : req.user.username }, (error, results) => {
-            if(error){
-                return console.log("Something went wrong getting the notes we were looking for: ", error);
-            }
-            res.json(results);
-    
-        });
+    Articles.findById(req.body.articleId).then((article) => {
+        article.notes.push(newNote);
+        article.save();
+        res.json(article);
     });
+});
 
-    
+router.get('/notes/:articleId', (req, res) => {
+    Articles.findById(req.params.articleId).then((article) => {
+        res.json({ article: article, user: req.user._id });
+    }).catch((error) => {
+        console.log(error);
+        res.send("Something went wrong finding that article");
+    });
+});
+
+router.delete('/notes/:commentId/:articleId', (req, res) => {
+    Articles.findById(req.params.articleId).then((article) => {
+        article.notes = article.notes.filter((note) => note._id != req.params.commentId);
+        article.save();
+        res.json(article);
+    });
 });
 
 module.exports = router;

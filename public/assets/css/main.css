@@ -26,8 +26,9 @@ h1,h2,h3,h4{
     font-family: 'Anton', sans-serif;
 }
 
-p, a, form{
-    font-size: 1.8rem;
+p, a, form, input{
+    font-size: 2.2rem;
+    text-decoration: none;
 }
 
 .navbar a{
@@ -88,6 +89,7 @@ p, a, form{
 
 .panel-title{
     font-size: 3.6rem;
+    color: #000;
 }
 
 #scraper-form{
@@ -136,6 +138,14 @@ p, a, form{
     margin-top: 25px;
 }
 
-.btn-article{
+.btn-article, .btn-remove, .btn-comment{
     font-size: 2.6rem;
+}
+
+.modal-dialog{
+    color: black;
+}
+
+.list-group{
+    font-weight: 300 !important;
 }

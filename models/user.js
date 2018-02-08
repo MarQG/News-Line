@@ -9,8 +9,6 @@ var UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: "Password cannot be empty.",
-        min: 8
     },
     email: {
         type: String,

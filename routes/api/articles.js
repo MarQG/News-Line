@@ -73,8 +73,8 @@ const scrapeNYT = (req, res) => {
 
 // ====== ROUTES ========
 router.get('/articles', (req, res) => {
-    Articles.find({}).limit(50).then((results) => {   
-        res.json(results);
+    Articles.find({}).then((results) => {   
+        res.json({ articles: results, user: req.user._id});
     }).catch((error) => {
         if(error){
             req.flash('error', 'Something went wrong with the database. Try again later.');
@@ -107,13 +107,14 @@ router.post('/saveArticles/', (req, res)  => {
         });
         if(articleCount.length > 0){
             console.log('User already saved this');
+            res.send('User already saved this');
         } else {
             Articles.findByIdAndUpdate(req.body.articleId,{ $push: { saved: { id:req.user._id} }}, (err, results) => {
                 if(err){
                     return console.log(err);
                 }
                 console.log("saved article for user");
-                console.log(results);
+                res.json(results);
             })
           
         }
@@ -130,6 +131,19 @@ router.get('/savedArticles/', (req, res) => {
         'saved.id': { $all: [ req.user._id ]}
     }).then((results) => {
         res.json(results);
+    }).catch((error) => {
+        console.log(error);
+    })
+
+});
+
+router.post('/removeSavedArticles/', (req, res) => {
+    Articles.findOne({
+        _id: req.body.articleId
+    }).then((article) => {
+        article.saved = article.saved.filter((user) => user.id != req.user._id);
+        article.save();
+        res.json(article);
     }).catch((error) => {
         console.log(error);
     })

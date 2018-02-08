@@ -13,12 +13,22 @@ const articlesSchema = mongoose.Schema(
             }],
            
             notes: [{
-                id: {
-                    type: mongoose.Schema.Types.ObjectId,
-                    ref: "Notes"
+                author: {
+                    id: {
+                        type: mongoose.Schema.Types.ObjectId,
+                        ref: "User"
+                    },
+                    username: {
+                        type: mongoose.Schema.Types.String,
+                        ref: "User"
+                    }
+                },
+                comment: {
+                    type: String,
+                    required: true
                 },
             }]
-    });
+    },{ usePushEach: true });
 
 
 
