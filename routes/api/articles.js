@@ -1,7 +1,7 @@
 const express           = require("express");
 const router            = express.Router();
 const cheerio           = require('cheerio');
-const request           = require("request");
+const request           = require('request');
 const Articles          = require('../../models/articles');
 
 // ===== Scapper Functions ======
