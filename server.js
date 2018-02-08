@@ -18,7 +18,7 @@ const articlesApiRoutes = require('./routes/api/articles');
 const notesApiRoutes = require('./routes/api/notes');
 
 mongoose.Promise = require('bluebird');
-mongoose.connect(process.env.DATABASEURL || 'mongodb://localhost:27017/scrapper', (err) => {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/scrapper', (err) => {
     if(err){
         console.log('could not connect to the database')
     }
