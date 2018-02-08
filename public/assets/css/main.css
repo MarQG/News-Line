@@ -6,6 +6,7 @@ body{
     background-repeat: no-repeat;
     height: 100vh;
     color: white;
+    font-size: 14px;
 }
 
 body::after {
@@ -148,4 +149,8 @@ p, a, form, input{
 
 .list-group{
     font-weight: 300 !important;
+}
+
+.form-control{
+    font-size: 20px;
 }
