@@ -8,6 +8,7 @@ const localStrategy   = require("passport-local").Strategy;
 const methodOverride  = require("method-override");
 const User            = require("./models/user");
 
+const port = process.env.PORT || 3000;
 
     
 //requiring routes
@@ -68,6 +69,8 @@ app.use('/articles', articlesPageRoutes);
 app.use('/api', articlesApiRoutes);
 app.use('/api', notesApiRoutes);
 
-app.listen(process.env.PORT || 3000, process.env.IP || 'localhost', () => {
+
+
+app.listen(port, () => {
     console.log("The NEWS LINE Server has started!");
 });
