@@ -26,8 +26,9 @@ Saved Article lets users post comments and notes about what they have read to sh
 Feel free to clone this repo and build your own version of News Line!
 
 After you have cloned the repo simple run:
-`npm install
-npm start`
+`npm install`
+
+`npm start`
 
 ## Live Demo
 
