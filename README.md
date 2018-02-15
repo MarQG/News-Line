@@ -26,15 +26,17 @@ Saved Article lets users post comments and notes about what they have read to sh
 Feel free to clone this repo and build your own version of News Line!
 
 After you have cloned the repo simple run:
->`npm start`
+`npm install
+npm start`
 
 ## Live Demo
 
 You can try this app for yourself here with a guest account.
 [NewsLine Demo](https://thawing-spire-14813.herokuapp.com/dashboard)
 
->Username: Guest
->Password: guest
+`Username: Guest`
+
+`Password: guest`
 
 
 
