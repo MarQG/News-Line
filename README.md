@@ -38,6 +38,7 @@ You will need to have a mongoDB server running to use the database. After you ha
 ## Live Demo
 
 You can try this app for yourself here with a guest account.
+
 [NewsLine Demo](https://thawing-spire-14813.herokuapp.com/dashboard)
 
 `Username: Guest`
