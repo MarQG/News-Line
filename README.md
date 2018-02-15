@@ -31,6 +31,10 @@ After you have cloned the repo simple run:
 
 `npm start`
 
+You will need to have a mongoDB server running to use the database. After you have installed mongo run this command in another terminal to run the mongoDB server.
+
+`mongod`
+
 ## Live Demo
 
 You can try this app for yourself here with a guest account.
